@@ -1,6 +1,6 @@
 ####Sintaxe de uso:
 
-    java -jar <jar da aplicacao> <nome da branch> <path do repositorio>
+    java -jar <jar da aplicacao> <numero da tarefa> <path do repositorio>
     
 ####Exemplo:
     
