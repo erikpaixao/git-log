@@ -8,6 +8,8 @@
     
 Serão gerados três arquivos: adicionados, modificados e deletados.
 
+Obs: A mensagem de commit dete estar no padrão "Task <nuemro da tarefa>"
+
 ####Exemplo:
 
     Projeto: aic-gestao-componentes-estatico
