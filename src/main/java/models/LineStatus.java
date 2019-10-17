@@ -10,6 +10,7 @@ import java.util.Comparator;
 public class LineStatus implements Comparable<LineStatus>{
     private String status;
     private String arquivo;
+    private String task;
 
     public int compareTo(LineStatus o) {
         return Comparator.comparing(LineStatus::getStatus)

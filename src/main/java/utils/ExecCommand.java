@@ -11,6 +11,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 public class ExecCommand {
 
@@ -32,17 +33,25 @@ public class ExecCommand {
         Set<LineStatus> lines = new HashSet<>();
 
         try {
-            procces = Runtime.getRuntime().exec(command + branch, null, file);
+            procces = Runtime.getRuntime().exec(command, null, file);
             BufferedReader br = new BufferedReader(
                     new InputStreamReader(procces.getInputStream()));
+            String task = null;
             while ((s = br.readLine()) != null) {
-                try {
-                    lines.add(new LineStatus(s.split("\t")[0], s.split("\t")[1]));
-                } catch (ArrayIndexOutOfBoundsException ignored){}
+                if (s.toLowerCase().startsWith("task")) {
+                    task = s;
+                } else {
+                    try {
+                        lines.add(new LineStatus(s.split("\t")[0], s.split("\t")[1], task));
+                    } catch (ArrayIndexOutOfBoundsException ignored) {
+                    }
+                }
             }
             procces.waitFor();
             procces.destroy();
-            separarLinhas(lines);
+            separarLinhas(lines.parallelStream()
+                    .filter(lineStatus -> lineStatus.getTask()
+                            .contains(branch)).collect(Collectors.toSet()));
         } catch (Exception e) {
             e.printStackTrace();
         }
