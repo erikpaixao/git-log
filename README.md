@@ -8,7 +8,7 @@
     
 Serão gerados três arquivos: adicionados, modificados e deletados.
 
-Obs: A mensagem de commit dete estar no padrão "Task <nuemro da tarefa>"
+Obs: A mensagem de commit deve estar no padrão "Task 1111111"
 
 ####Exemplo:
 
