@@ -1,12 +1,14 @@
 ####Sintaxe de uso:
 
-    java -jar <jar da aplicacao> <nome da branch> <path do repositorio>
+    java -jar <jar da aplicacao> <numero da tarefa> <path do repositorio>
     
 ####Exemplo:
     
     java -jar git-log-1.0.0.jar 1152078 /kdi/git/aic-gestao-componentes-estatico/
     
 Serão gerados três arquivos: adicionados, modificados e deletados.
+
+Obs: A mensagem de commit deve estar no padrão "Task 1111111"
 
 ####Exemplo:
 
